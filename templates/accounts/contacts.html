@@ -1,0 +1,60 @@
+{% extends "../blocks/chat_base.html" %}
+
+{% load static %}
+
+{% block title %}Friends | Conversat{% endblock title %}
+
+
+{% block body %}
+
+<div class="bg-slate-900 w-full h-screen flex items-center justify-center overflow-y-auto">
+    <div class="w-full mx-3.5 sm:mx-24 md:w-3/4 lg:mx-0 bg-dark rounded-lg shadow-lg p-10 lg:w-1/2 my-auto">
+        <h3 class="text-2xl text-white font-bold mb-8">Friends</h3>
+        <form method="post" id="search-contact-form">
+
+            <div class="my-2.5 flex flex-col">
+                <label for="phone" class="mb-1.5 capitalize font-medium text-green-0">phone number</label>
+                <input type="text" id="phone" name="phone"
+                    class="w-full h-10 border-b-2 border-green-0 outline-none bg-gray-700 text-white p-1 shadow-sm"
+                    placeholder="Search to add friends">
+            </div>
+            <div id="searched-user-view"></div>
+
+            <button type="submit" id="search-contact-btn"
+                class="mt-6 w-full text-white rounded bg-green-0 py-3 px-4 font-bold uppercase transition-colors duration-300 hover:bg-green-0-dark">Search
+                Contact <i class="fa fa-long-arrow-right ml-3" aria-hidden="true"></i></button>
+
+        </form>
+
+        <div class="mt-10 max-h-64  overflow-y-auto">
+            <h3 class="text-white font-bold mb-3.5 capitalize">My Friends</h3>
+            {% if contacts.count == 0 %}
+              <p class="text-white font-bold text-sm px-1.5">Your friends will appear here after you add friends</p>
+            {% else %}
+            {% for contact in contacts %}
+            <div class="py-2.5 sm:px-2 flex items-center justify-between hover:bg-light-dark transition-colors duration-300 cursor-pointer rounded">
+                <a {% if request.user != contact %}href="/chat/personal/p/{{contact.id}}"{% endif %} class="w-full flex items-center justify-start">
+                    <div class="mr-2.5 sm:mr-3.5 text-white text-3xl col-span-1 overflow-hidden w-16 h-16 rounded-full bg-cover bg-no-repeat bg-center flex items-center justify-center {% if contact.profile_pic == '' %} border-green-0 border-[3.1px] border-solid {% endif %}" {% if contact.profile_pic != '' %} style="background-image: url('/media/{{contact.profile_pic}}');" {% endif %}>
+                        {% if contact.profile_pic == '' %} {{contact.first_name|slice:":1"}} {% endif %}
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg text-white">{{contact.first_name}} {{contact.last_name}}</p>
+                        <p class="font-bold text-xs text-gray-400">
+                            {{contact.phone}} 
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
+
+{% block scripts %}
+<script src="{% static 'js/contacts.js' %}"></script>
+{% endblock scripts %}
