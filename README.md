@@ -83,5 +83,5 @@ To run the project in your localserver
 ```
 ## Authors
 
-- [@Atanu Roy](https://github.com/Mr-Atanu-Roy)
+- [@Aritra Mondal ICS](https://github.com/Aritra-Mondal-ICS)
 
