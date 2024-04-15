@@ -82,5 +82,5 @@ To run the project in your localserver
 ```
 ## Authors
 
-- [@Aritra Mondal ICS](https://github.com/Aritra-Mondal-ICS)
+- [@Aritra-ISS](https://github.com/Aritra-ISS)
 
