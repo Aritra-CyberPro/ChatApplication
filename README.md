@@ -39,10 +39,8 @@ To run this project, you will need to add the following environment variables to
 Create a folder and open terminal and install this project by
 command 
 ```bash
-https://github.com/Aritra-ISS/ChatApplication.git
-
+https://github.com/Aritra-CyberPro/ChatApplication.git
 ```
-or simply download this project from https://github.com/Aritra-ISS/ChatApplication.git
 In project directory Create a virtual environment of any name(say env)
 
 ```bash
@@ -82,5 +80,5 @@ To run the project in your localserver
 ```
 ## Authors
 
-- [@Aritra-ISS](https://github.com/Aritra-ISS)
+- [@Aritra](https://github.com/Aritra-CyberPro)
 
